@@ -2,6 +2,7 @@
 
 html {
   font-size: 16px;
+  font-family: 'Gotham', sans-serif;
 }
 
 .image-container {
@@ -19,6 +20,8 @@ html {
 
 header {
   height: 64px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
@@ -35,4 +38,27 @@ header {
   font-size: 1.5rem;
   display: inline-flex;
   align-items: center;
+}
+
+#logo_name strong {
+  font-weight: 700;
+}
+
+nav {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 16px;
+}
+
+nav span a {
+  font-size: 1.25rem;
+  padding: 8px;
+}
+
+nav span a:hover {
+  color: #0456d1;
+  background-color: #e3e7ed;
+}
+
+nav span a {
 }
