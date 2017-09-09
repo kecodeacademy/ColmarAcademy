@@ -13,6 +13,7 @@
 html {
   font-size: 16px;
   font-family: 'Gotham', sans-serif;
+  color: hsl(220, 5%, 35%)
 }
 
 .image_container {
@@ -25,18 +26,53 @@ html {
   height: auto;
 }
 
-.left_side {
-}
-
-.right_side {
-
+.left_side, .right_side {
+  display: inline-flex;
 }
 
 .content {
-  max-width: 1600px;
+  max-width: 1400px;
   display: flex;
   margin: 0 auto;
 }
+
+/*
+
+.wide {
+  max-width: 1400px;
+}
+
+*/
+
+
+h1,h2,h3 {
+  font-family: 'Open sans';
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.grey-background {
+  background-color: hsl(220, 10%, 95%);
+}
+
+@media only screen and (max-width: 1000px) {
+
+  html {
+    font-size: 13px;
+  }
+
+  .content {
+    margin: 0 1rem;
+  }
+}
+
 
 /* Header */
 
@@ -88,37 +124,33 @@ nav span a:hover {
   background-color: hsl(220, 20%, 80%);
 }
 
-nav span a {
+nav span a:active {
+  background-color: hsl(220, 80%, 60%);
+  opacity: .9;
 }
 
 /* Jumbotron */
 
 .jumbotron {
-  background-color: hsl(220, 10%, 95%);
 }
 
 .jumbotron .image_container {
   width: 60%;
-/*  max-width: 800px; */
   padding: 2rem 1.5rem;
 
 }
 
 .jumbotron .right_side {
-  display: flex;
   justify-content: center;
   flex-direction: column;
   max-width: 500px;
-
-
 }
+
 .jumbotron .right_side .text {
 }
 
 .jumbotron .right_side .text h1 {
   font-size: 3rem;
-  font-weight: 700;
-  font-family: 'Open sans';
   padding-bottom: 1rem;
 }
 
@@ -136,10 +168,89 @@ nav span a {
   color: white;
   width: 70%;
   font-size: 1.25rem;
-  transition: background-color 200ms ease 100ms, opacity 100ms ease 100ms;
+  transition: background-color 100ms ease-out, opacity 100ms ease-out; */
 }
 
-.jumbotron .right_side .button:hover {
-  background-color: hsl(220, 80%, 40%);
+.jumbotron .right_side .button:active {
+  background-color: hsl(220, 80%, 60%);
   opacity: .9;
+}
+
+/* campus section */
+
+#campus .content {
+
+}
+
+#campus .left_side {
+  width: 60%;
+  padding: 32px 24px;
+  border-right: 2px solid hsl(220, 10%, 95%);
+  flex-direction: column;
+}
+
+#campus .left_side .image_container {
+  width:100%;
+}
+
+#campus .left_side h1 {
+  margin: 32px 0 24px 0;
+}
+
+#campus .left_side p {
+  margin: 1rem 10% 0 0;
+}
+
+#campus .left_side .quote {
+  font-size: 1.25rem;
+  font-weight: 200;
+  font-style: italic;
+  margin-top: 0;
+}
+
+#campus .right_side {
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event {
+  display: flex;
+  margin: 1px 0;
+  border-width: 1px 0 1px 0;
+  border-color: hsl(220, 10%, 95%);
+  border-style: solid;
+}
+
+.event .image_container {
+  width: 35%;
+  margin: 1rem;
+}
+
+
+.event .text {
+  display: flex;
+  width: 65%;
+  flex-direction: column;
+  justify-content: center;
+  margin: .5rem 0;
+  flex-shrink: .25;
+}
+
+.event .text p,h3{
+  margin: .5rem 0;
+}
+
+.read_more {
+  font-weight: 500;
+  color: hsl(220, 68%, 40%);
+  font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 900px) {
+
+  .event .image_container {
+      margin: auto 1rem;
+  }
+
 }
