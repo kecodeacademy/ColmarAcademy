@@ -3,10 +3,27 @@
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v14/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v14/MTP_ySUJH_bn48VBG8sNShampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v14/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
 
 /* Universal Styles */
 
@@ -30,44 +47,58 @@ html {
   display: inline-flex;
 }
 
+.left_side {
+  width: 60%;
+  padding: 32px 24px;
+}
+
+.right_side {
+  width: 40%;
+  flex-direction: column;
+}
+
 .content {
-  max-width: 1400px;
+  max-width: 1200px;
   display: flex;
   margin: 0 auto;
 }
 
+
 /*
 
 .wide {
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 */
 
-
-h1,h2,h3 {
+h1, h2, h3 {
   font-family: 'Open sans';
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 700;
+  margin: 2rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
 .grey-background {
   background-color: hsl(220, 10%, 95%);
 }
 
-@media only screen and (max-width: 1000px) {
+.center {
+  text-align: center;
+}
 
+@media only screen and (max-width: 1000px) {
   html {
     font-size: 13px;
   }
-
   .content {
     margin: 0 1rem;
   }
@@ -103,7 +134,7 @@ header {
   font-weight: 700;
 }
 
-.logo span strong{
+.logo span strong {
   margin-right: 2px;
 }
 
@@ -129,15 +160,14 @@ nav span a:active {
   opacity: .9;
 }
 
+
 /* Jumbotron */
 
-.jumbotron {
-}
+.jumbotron {}
 
 .jumbotron .image_container {
   width: 60%;
   padding: 2rem 1.5rem;
-
 }
 
 .jumbotron .right_side {
@@ -152,6 +182,7 @@ nav span a:active {
 .jumbotron .right_side .text h1 {
   font-size: 3rem;
   padding-bottom: 1rem;
+  margin: 0;
 }
 
 .jumbotron .right_side .text p {
@@ -168,7 +199,8 @@ nav span a:active {
   color: white;
   width: 70%;
   font-size: 1.25rem;
-  transition: background-color 100ms ease-out, opacity 100ms ease-out; */
+  transition: background-color 100ms ease-out, opacity 100ms ease-out;
+  */
 }
 
 .jumbotron .right_side .button:active {
@@ -176,21 +208,18 @@ nav span a:active {
   opacity: .9;
 }
 
+
 /* campus section */
 
-#campus .content {
-
-}
+#campus .content {}
 
 #campus .left_side {
-  width: 60%;
-  padding: 32px 24px;
   border-right: 2px solid hsl(220, 10%, 95%);
   flex-direction: column;
 }
 
 #campus .left_side .image_container {
-  width:100%;
+  width: 100%;
 }
 
 #campus .left_side h1 {
@@ -209,8 +238,6 @@ nav span a:active {
 }
 
 #campus .right_side {
-  width: 40%;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -227,7 +254,6 @@ nav span a:active {
   margin: 1rem;
 }
 
-
 .event .text {
   display: flex;
   width: 65%;
@@ -237,20 +263,78 @@ nav span a:active {
   flex-shrink: .25;
 }
 
-.event .text p,h3{
+.event .text p, h3 {
   margin: .5rem 0;
 }
 
-.read_more {
+.read_more a{
   font-weight: 500;
   color: hsl(220, 68%, 40%);
   font-size: 1.1rem;
 }
 
+.read_more a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media only screen and (max-width: 900px) {
-
   .event .image_container {
-      margin: auto 1rem;
+    margin: auto 1rem;
   }
+}
 
+@media only screen and (max-width: 600px) {
+  #campus .left_side {
+    display: none;
+  }
+  #campus .right_side {
+    width: 100%;
+  }
+}
+
+
+/* classes */
+
+#classes h1 {
+  display: block;
+/*  text-align: center; */
+  width: 100%;
+  padding-top: 2rem;
+  margin-top: 0;
+}
+
+#classes .content {
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -2rem;
+}
+
+.subject_container {
+  width: 250px;
+  margin: 2rem;
+}
+
+.subject_container .image_container {
+  width: 100%;
+}
+
+.subject_container .text {
+  background-color: white;
+  padding: 1rem;
+  height: 9.375rem;
+}
+
+.subject_container .text h3 {
+  margin: 1rem 0;
+}
+
+.subject_container .text h4 {
+  margin: .5rem 0;
+  font-size: 1.0rem;
+}
+
+.subject_container .text h4, p {
+  font-weight: 200;
 }
