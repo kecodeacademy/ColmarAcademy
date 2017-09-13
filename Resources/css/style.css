@@ -1,5 +1,6 @@
 /* fonts */
 
+/*
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -24,27 +25,33 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
+*/
 
 /* Universal Styles */
 
 html {
   font-size: 16px;
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Montserrat','Gotham', sans-serif;
   color: hsl(220, 5%, 35%)
 }
+
+   /* Global container styles */
 
 .image_container {
   overflow: hidden;
 }
 
-.image_container img {
+.image_container img, .image_container video {
   display: block;
   width: 100%;
   height: auto;
 }
 
+
+
 .left_side, .right_side {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
 }
 
 .left_side {
@@ -54,7 +61,6 @@ html {
 
 .right_side {
   width: 40%;
-  flex-direction: column;
 }
 
 .content {
@@ -63,7 +69,6 @@ html {
   margin: 0 auto;
 }
 
-
 /*
 
 .wide {
@@ -71,6 +76,12 @@ html {
 }
 
 */
+
+   /* global text styles */
+
+.center {
+  text-align: center;
+}
 
 h1, h2, h3 {
   font-family: 'Open sans';
@@ -83,17 +94,63 @@ h1 {
 }
 
 h3 {
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .grey-background {
   background-color: hsl(220, 10%, 95%);
 }
 
-.center {
-  text-align: center;
+.quote {
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  margin-top: 0;
 }
+
+   /* Global event container styles */
+
+.event {
+  display: flex;
+
+}
+
+.event .image_container {
+  width: 35%;
+  margin: 1rem;
+}
+
+.event .text {
+  display: flex;
+  width: 65%;
+  flex-direction: column;
+  justify-content: center;
+  margin: .5rem 0;
+  flex-shrink: .25;
+}
+
+.event .text p, h3 {
+  margin: .5rem 0;
+}
+
+.event .text p {
+  line-height: 1.4;
+}
+
+.read_more a{
+  font-weight: 500;
+  color: hsl(220, 68%, 40%);
+  font-size: 1.1rem;
+}
+
+.read_more a:hover {
+  text-decoration: underline;
+}
+
+
+   /* Global responsive styling */
+
 
 @media only screen and (max-width: 1000px) {
   html {
@@ -101,6 +158,12 @@ h3 {
   }
   .content {
     margin: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .image_container {
+    width: 100%;
   }
 }
 
@@ -200,7 +263,6 @@ nav span a:active {
   width: 70%;
   font-size: 1.25rem;
   transition: background-color 100ms ease-out, opacity 100ms ease-out;
-  */
 }
 
 .jumbotron .right_side .button:active {
@@ -208,6 +270,11 @@ nav span a:active {
   opacity: .9;
 }
 
+@media only screen and (max-width: 600px) {
+  .jumbotron .content {
+    flex-direction: column;
+  }
+}
 
 /* campus section */
 
@@ -215,7 +282,7 @@ nav span a:active {
 
 #campus .left_side {
   border-right: 2px solid hsl(220, 10%, 95%);
-  flex-direction: column;
+  padding-top: 2rem;
 }
 
 #campus .left_side .image_container {
@@ -223,58 +290,22 @@ nav span a:active {
 }
 
 #campus .left_side h1 {
-  margin: 32px 0 24px 0;
+  margin: 32px 0 8px 0;
 }
 
 #campus .left_side p {
   margin: 1rem 10% 0 0;
 }
 
-#campus .left_side .quote {
-  font-size: 1.25rem;
-  font-weight: 200;
-  font-style: italic;
-  margin-top: 0;
-}
 
 #campus .right_side {
-  justify-content: center;
+  padding-top: 2rem;
 }
 
-.event {
-  display: flex;
-  margin: 1px 0;
-  border-width: 1px 0 1px 0;
+#campus .right_side .event {
+  border-width: 2px 2px 2px 0;
   border-color: hsl(220, 10%, 95%);
   border-style: solid;
-}
-
-.event .image_container {
-  width: 35%;
-  margin: 1rem;
-}
-
-.event .text {
-  display: flex;
-  width: 65%;
-  flex-direction: column;
-  justify-content: center;
-  margin: .5rem 0;
-  flex-shrink: .25;
-}
-
-.event .text p, h3 {
-  margin: .5rem 0;
-}
-
-.read_more a{
-  font-weight: 500;
-  color: hsl(220, 68%, 40%);
-  font-size: 1.1rem;
-}
-
-.read_more a:hover {
-  text-decoration: underline;
 }
 
 
@@ -337,4 +368,49 @@ nav span a:active {
 
 .subject_container .text h4, p {
   font-weight: 200;
+}
+
+/* Thesis */
+
+.left_side {
+  padding-top: 0;
+}
+
+.left_side .image_container {
+  width: 100%;
+}
+
+.left_side .text h3 {
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.left_side .text .quote {
+  margin-right: 10%;
+  line-height: 1.5;
+}
+
+.thesis .content .right_side .event {
+  border: none;
+}
+
+.thesis .content .right_side .event .text {
+  margin-right: 10%;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: .75rem;
+  padding: 1rem 1.5rem;
+  border-top: 2px solid hsl(220, 10%, 95%);
+}
+
+footer div {
+  display: inline-block;
+}
+
+footer div span {
+  margin-left: .5rem;
 }
