@@ -47,8 +47,6 @@ html {
   height: auto;
 }
 
-
-
 .left_side, .right_side {
   display: flex;
   flex-direction: column;
@@ -67,6 +65,10 @@ html {
   max-width: 1200px;
   display: flex;
   margin: 0 auto;
+}
+
+.mobile {
+  display: none;
 }
 
 /*
@@ -156,14 +158,36 @@ h3 {
   html {
     font-size: 13px;
   }
-  .content {
-    margin: 0 1rem;
-  }
 }
 
 @media only screen and (max-width: 600px) {
+
+  .content {
+    flex-direction: column;
+  }
+
   .image_container {
     width: 100%;
+  }
+
+  .left_side, .right_side {
+    width: 100%;
+  }
+
+  .mobile_hide{
+    display: none;
+  }
+
+  .mobile {
+    display: inherit;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
   }
 }
 
@@ -228,9 +252,8 @@ nav span a:active {
 
 .jumbotron {}
 
-.jumbotron .image_container {
-  width: 60%;
-  padding: 2rem 1.5rem;
+.jumbotron .left_side .image_container {
+  margin: 2rem 1.5rem;
 }
 
 .jumbotron .right_side {
@@ -271,9 +294,37 @@ nav span a:active {
 }
 
 @media only screen and (max-width: 600px) {
-  .jumbotron .content {
-    flex-direction: column;
+  .jumbotron .left_side {
+    flex-direction: row;
+    padding: 0;
   }
+
+  .jumbotron .left_side .image_container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .jumbotron .right_side {
+    margin-left: 16px;
+    max-width: none;
+  }
+
+
+  .jumbotron .right_side .text h1 {
+    margin: 32px 0;
+    font-size: 2rem;
+  }
+
+  .jumbotron .right_side .text p {
+    margin: 32px 0 24px 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .jumbotron .right_side .button {
+    margin-bottom: 32px;
+  }
+
 }
 
 /* campus section */
@@ -317,12 +368,29 @@ nav span a:active {
 }
 
 @media only screen and (max-width: 600px) {
+  .event .image_container {
+    margin: 16px;
+  }
+
   #campus .left_side {
-    display: none;
   }
   #campus .right_side {
     width: 100%;
   }
+
+  #campus .right_side .event {
+    flex-direction: column;
+    border: none;
+  }
+
+  #campus .right_side .event .image_container {
+    width: 100%;
+  }
+
+  #campus .right_side .event .text {
+    margin-left: 16px;
+  }
+
 }
 
 
@@ -372,19 +440,19 @@ nav span a:active {
 
 /* Thesis */
 
-.left_side {
+.thesis .left_side {
   padding-top: 0;
 }
 
-.left_side .image_container {
+.thesis .left_side .image_container {
   width: 100%;
 }
 
-.left_side .text h3 {
+.thesis .left_side .text h3 {
   margin: 1.5rem 0 0.5rem 0;
 }
 
-.left_side .text .quote {
+.thesis .left_side .text .quote {
   margin-right: 10%;
   line-height: 1.5;
 }
