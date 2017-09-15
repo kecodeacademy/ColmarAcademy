@@ -163,11 +163,7 @@ h3 {
 @media only screen and (max-width: 600px) {
 
   .content {
-    flex-direction: column;
-  }
-
-  .image_container {
-    width: 100%;
+    flex-wrap: wrap;
   }
 
   .left_side, .right_side {
@@ -180,10 +176,6 @@ h3 {
 
   .mobile {
     display: inherit;
-  }
-
-  h1 {
-    font-size: 1.5rem;
   }
 
   h3 {
@@ -199,11 +191,11 @@ header {
   display: flex;
   justify-content: space-between;
   color: hsl(220, 100%, 30%);
+  align-items: center;
 }
 
 .logo {
   display: flex;
-  align-items: center;
 }
 
 #colmar_logo {
@@ -237,14 +229,24 @@ nav span a {
   color: inherit;
 }
 
-nav span a:hover {
+nav span a:hover, header div a:hover {
   color: hsl(220, 100%, 100%);
   background-color: hsl(220, 20%, 80%);
 }
 
-nav span a:active {
+nav span a:active, header div a:active {
   background-color: hsl(220, 80%, 60%);
   opacity: .9;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    justify-content: space-around;
+  }
+  #logo_name, nav {
+    display: none;
+  }
+
 }
 
 
@@ -306,6 +308,7 @@ nav span a:active {
 
   .jumbotron .right_side {
     margin-left: 16px;
+    margin-right: 8px;
     max-width: none;
   }
 
@@ -368,8 +371,11 @@ nav span a:active {
 }
 
 @media only screen and (max-width: 600px) {
-  .event .image_container {
+
+  .event .image_container.mobile {
     margin: 16px;
+    width: 100%;
+    display: block;
   }
 
   #campus .left_side {
@@ -379,16 +385,18 @@ nav span a:active {
   }
 
   #campus .right_side .event {
-    flex-direction: column;
+    flex-wrap: wrap;
     border: none;
   }
 
   #campus .right_side .event .image_container {
-    width: 100%;
   }
 
   #campus .right_side .event .text {
     margin-left: 16px;
+  }
+  #campus .right_side .event.grey-background {
+    background-color: white;
   }
 
 }
@@ -396,9 +404,13 @@ nav span a:active {
 
 /* classes */
 
+#classes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #classes h1 {
-  display: block;
-/*  text-align: center; */
+  justify-content: center;
   width: 100%;
   padding-top: 2rem;
   margin-top: 0;
@@ -438,6 +450,31 @@ nav span a:active {
   font-weight: 200;
 }
 
+@media only screen and (max-width: 600px) {
+  #classes {
+    border-top: 2px solid hsl(220, 10%, 95%);
+    border-bottom: 2px solid hsl(220, 10%, 95%);
+  }
+
+  #classes.grey-background {
+    background-color: white;
+  }
+  .subject_container .image_container, .subject_container .text h4, .subject_container .text p {
+    display: none;
+  }
+
+  .subject_container {
+    width: 100%;
+  }
+
+  .subject_container .text{
+    height: auto;
+    background-color: hsl(220, 10%, 85%);
+  }
+  .subject_container .text h3{
+  }
+}
+
 /* Thesis */
 
 .thesis .left_side {
@@ -463,6 +500,12 @@ nav span a:active {
 
 .thesis .content .right_side .event .text {
   margin-right: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+  .thesis .content .left_side {
+    padding: 0;
+  }
 }
 
 /* footer */
